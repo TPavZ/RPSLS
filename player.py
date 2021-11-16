@@ -1,7 +1,7 @@
 class Player:
-    def __init__(self,name):
+    def __init__(self):
         self.gesture_list = ["Rock", "Paper", "Scissors", "Lizard", "Spock"]
-        self.name = name
+        self.name = ""
         self.choice = ""
         self.score = 0
         
@@ -22,4 +22,5 @@ class Player:
             print(f"{self.name} selected {self.gesture_list[3]}")
         elif user_input == 4:
             print(f"{self.name} selected {self.gesture_list[4]}")
-        
+
+    
