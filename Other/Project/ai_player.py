@@ -1,6 +1,8 @@
 import random
 
-class AI:
+from player import Player
+
+class AI(Player):
     def __init__(self, name):
         self.name = name
         super().__init__(name)
