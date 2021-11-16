@@ -3,9 +3,9 @@ import random
 from player import Player
 
 class AI(Player):
-    def __init__(self, name):
-        self.name = name
-        super().__init__(name)
+    def __init__(self):
+        super().__init__()
+        self.set_name()
         
     def hand_gesture(self):
         self.gesture = random.choice()
@@ -19,3 +19,6 @@ class AI(Player):
             print(f'Player 2 selected {self.gesture}')
         elif self.gesture == "Spock":
             print(f'Player 2 selected {self.gesture}')
+
+    def set_name(self):
+        self.name = "Master AI"
