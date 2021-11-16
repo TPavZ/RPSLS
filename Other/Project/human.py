@@ -1,6 +1,9 @@
-class Human: #need to make a gesture choice
+from player import Player
+
+class Human(Player): #need to make a gesture choice
     
-    def __init__(self):
-        self.name = "" #input player name here.
-        
+    def __init__(self, player):
+        self.name = player
+        super().__init__
+
         
