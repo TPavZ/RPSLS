@@ -8,7 +8,7 @@ class AI(Player):
         self.set_name()
         
     def hand_gesture(self):
-        self.gesture = random.choice()
+        self.gesture = random.choice() #the choice list goes here>
         if self.gesture == "Rock":
             print(f'Player 2 selected {self.gesture}')
         elif self.gesture == "Paper":

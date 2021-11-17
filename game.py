@@ -1,5 +1,6 @@
 from human import Human
 from ai_player import AI
+from player import Player
 
 class Game:
     def __init__(self):
@@ -23,11 +24,13 @@ class Game:
             self.player_name()
             self.game_mode()
             self.rules()
+            #gameplay goes here
+            self.display_winner()
         else:
             self.run_game()
 
     def rules(self):
-        print(f"\nLet THE GAME BEGIN\n\n{self.player_one.name} & {self.player_two.name}\n*To play*\nEach player chooses one gesture from the list:")
+        print(f"\nLet THE GAME BEGIN\n\n{self.player_one.name} vs. {self.player_two.name}\n*To play*\nEach player chooses one gesture from the list:")
         print("For each players gesture chosen;\n")
         print("Rock crushes Scissors\nScissors cuts Paper\nPaper covers Rock\nRock crushes Lizard\nLizard poisons Spock\nSpock smashes Scissors\nScissors decapitates Lizard\nLizard eats Paper\nPaper disproves Spock\nSpock vaporizes Rock")
         print("\nIf the same gestures are played, round results in a tie and must be replayed immediately.")
@@ -50,3 +53,56 @@ class Game:
         self.player_one = Human(input("Enter a name for the first player: "))
         print(f"{self.player_one.name} is player one.")
         print(input("\nPress ENTER to continue..."))
+
+
+# dependant on 1 or 2 player we need to start a player vs player game or player vs ai game.
+# single player will take user input to select a gesture and compare it to the AI randon gesture.
+# two player will take both user inputs and compare them together. 
+# both need to identify a tie then replay.
+# both need to identify a winning gesture selection
+# when a player gets the round win it gets added to a win counter.
+# The win counter has to be best out of three.
+    #when players win count when compared to the other player is > 2 they win.
+
+    def define_win(self):
+        if self.player_one.choice == self.player_two.choice:
+            print("tie")
+        elif self.player_one.choice == "Rock" and self.player_two.choice == "Scissors":
+            self.player_one.score += 1
+            self.player_two.score -= 1                    
+        elif self.player_one.choice == "Scissors" and self.player_two.choice == "Paper":
+            self.player_one.score += 1
+            self.player_two.score -= 1
+        elif self.player_one.choice == "Paper" and self.player_two.choice == "Rock":
+            self.player_one.score += 1
+            self.player_two.score -= 1
+        elif self.player_one.choice == "Rock" and self.player_two.choice == "Lizard":
+            self.player_one.score += 1
+            self.player_two.score -= 1
+        elif self.player_one.choice == "Lizard" and self.player_two.choice == "Spock":
+            self.player_one.score += 1
+            self.player_two.score -= 1
+        elif self.player_one.choice == "Spock" and self.player_two.choice == "Scissors":
+            self.player_one.score += 1
+            self.player_two.score -= 1
+        elif self.player_one.choice == "Scissors" and self.player_two.choice == "Lizard":
+            self.player_one.score += 1
+            self.player_two.score -= 1
+        elif self.player_one.choice == "Lizard" and self.player_two.choice == "Paper":
+            self.player_one.score += 1
+            self.player_two.score -= 1
+        elif self.player_one.choice == "Paper" and self.player_two.choice == "Spock":
+            self.player_one.score += 1
+            self.player_two.score -= 1            
+        elif self.player_one.choice == "Spock" and self.player_two.choice == "Rock":
+            self.player_one.score += 1
+            self.player_two.score -= 1            
+        else:
+            self.player_two.score += 1
+            self.player_one.score -= 1 
+    
+    def display_winner(self): #if a players score is 2 higher then the others that player wins
+        if self.player_one.score == 2: 
+            print(f"{self.player_one.name} Wins the game!")
+        else:
+            print(f"{self.player_two.name} Wins the game!")
