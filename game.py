@@ -24,10 +24,25 @@ class Game:
             self.player_name()
             self.game_mode()
             self.rules()
-            #gameplay goes here
-            self.display_winner()
+            self.gameplay()
+            #self.player_one.hand_gesture()
+            #self.player_two.hand_gesture()
+            #self.define_win()
+            #self.display_winner()
         else:
             self.run_game()
+
+    def gameplay(self):
+        while self.player_one.score < 2 and self.player_two.score < 2:
+            self.player_one.hand_gesture()
+            self.player_two.hand_gesture()
+            self.define_win()
+        self.display_winner()
+        print(input("\nPress ENTER to continue..."))
+        self.run_game()
+
+
+
 
     def rules(self):
         print(f"\nLet THE GAME BEGIN\n\n{self.player_one.name} vs. {self.player_two.name}\n*To play*\nEach player chooses one gesture from the list:")
@@ -106,3 +121,4 @@ class Game:
             print(f"{self.player_one.name} Wins the game!")
         else:
             print(f"{self.player_two.name} Wins the game!")
+
