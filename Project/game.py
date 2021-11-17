@@ -34,15 +34,12 @@ class Game:
 
     def gameplay(self):
         while self.player_one.score < 2 and self.player_two.score < 2:
-            self.player_one.choose_gesture()
-            if self.player_two == AI():
-                self.player_two.hand_gesture()
-            else: 
-                self.player_two.choose_gesture()
+            self.player_one.hand_gesture()
+            self.player_two.hand_gesture()
             self.define_win()
-            self.display_winner()
-            print(input("\nPress ENTER to continue..."))
-            self.run_game()
+        self.display_winner()
+        print(input("\nPress ENTER to continue..."))
+        self.run_game()
 
 
 
@@ -124,3 +121,4 @@ class Game:
             print(f"{self.player_one.name} Wins the game!")
         else:
             print(f"{self.player_two.name} Wins the game!")
+
