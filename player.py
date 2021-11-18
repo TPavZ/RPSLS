@@ -11,7 +11,7 @@ class Player:
         self.choice = int(input("Press 0 for Rock, 1 for Paper, 2 for Scissors, 3 for Lizard, 4 for Spock: "))
         validation = self.validation(self.choice)
         self.choice = self.gesture_list[validation]
-        print(f"\n{self.name} selects {self.choice}")
+        print(f"\n{self.name} has selected {self.choice}")
         return self.choice
 
     def validation(self, validation):

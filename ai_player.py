@@ -10,15 +10,15 @@ class AI(Player):
     def hand_gesture(self):
         self.choice = random.choice(self.gesture_list)
         if self.choice == "Rock":
-           print(f'{self.name} selected {self.choice}')
+           print(f'\n{self.name} has randomly selected {self.choice}')
         elif self.choice == "Paper":
-           print(f'{self.name} selected {self.choice}')
+           print(f'\n{self.name} has randomly selected {self.choice}')
         elif self.choice == "Scissors":
-           print(f'{self.name} selected {self.choice}')
+           print(f'\n{self.name} has randomly selected {self.choice}')
         elif self.choice == "Lizard":
-           print(f'{self.name} selected {self.choice}')
+           print(f'\n{self.name} has randomly selected {self.choice}')
         elif self.choice == "Spock":
-           print(f'{self.name} selected {self.choice}')
+           print(f'\n{self.name} has randomly selected {self.choice}')
 
     def set_name(self):
         self.name = "Master AI"

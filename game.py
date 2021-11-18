@@ -45,8 +45,8 @@ class Game:
                 self.player_two.choose_gesture()
                 self.define_win()
             self.display_winner()
-            print(input("\nPress ENTER to replay"))
-            self.run_game()
+            #print(input("\nPress ENTER to replay"))
+            #self.run_game()
 
 
 
@@ -83,58 +83,98 @@ class Game:
         elif self.player_one.choice == "Rock" :
             if self.player_two.choice == "Scissors" or self.player_two.choice == "Lizard":
                 print(f"\n{self.player_one.choice} crushes {self.player_two.choice}, {self.player_one.name} wins this round")
-                self.player_one.score += 1 
+                self.player_one.score += 1
                 print(f"\nCurrent Score:\n{self.player_one.name} - ({self.player_one.score})\n{self.player_two.name} - ({self.player_two.score})")
-                (input("\nPress ENTER to continue..."))                
-            elif self.player_two.choice == "Spock" or self.player_two.choice == "Paper":
+                (input("\nPress ENTER to continue..."))
+            elif self.player_two.choice == "Paper":
+                print(f"\n{self.player_two.choice} covers {self.player_one.choice}! {self.player_two.name} wins this round.")
+                self.player_two.score += 1
+                print(f"\nCurrent Score:\n{self.player_one.name} - ({self.player_one.score})\n{self.player_two.name} - ({self.player_two.score})")
+                (input("\nPress ENTER to continue..."))
+            elif self.player_two.choice == "Spock":
                 print(f"\n{self.player_two.choice} vaporizes {self.player_one.choice}! {self.player_two.name} wins this round.")
-                self.player_two.score += 1 
+                self.player_two.score += 1  
                 print(f"\nCurrent Score:\n{self.player_one.name} - ({self.player_one.score})\n{self.player_two.name} - ({self.player_two.score})")
-                (input("\nPress ENTER to continue..."))                
+                (input("\nPress ENTER to continue..."))
         elif self.player_one.choice == "Paper":
-            if self.player_two.choice == "Rock" or self.player_two.choice == "Spock":
+            if self.player_two.choice == "Rock":
                 print(f"\n{self.player_one.choice} covers {self.player_two.choice}! {self.player_one.name} wins this round!")
-                self.player_one.score += 1 
+                self.player_one.score += 1
                 print(f"\nCurrent Score:\n{self.player_one.name} - ({self.player_one.score})\n{self.player_two.name} - ({self.player_two.score})")
-                (input("\nPress ENTER to continue..."))                
-            elif self.player_two.choice == "Lizard" or self.player_two.choice == "Scissors":
+                (input("\nPress ENTER to continue..."))
+            elif self.player_two.choice == "Spock":
+                print(f"\n{self.player_one.choice} disproves {self.player_two.choice}! {self.player_one.name} wins this round!")
+                self.player_one.score += 1
+                print(f"\nCurrent Score:\n{self.player_one.name} - ({self.player_one.score})\n{self.player_two.name} - ({self.player_two.score})")
+                (input("\nPress ENTER to continue..."))
+            elif self.player_two.choice == "Lizard":
                 print(f"\n{self.player_two.choice} eats {self.player_one.choice}! {self.player_two.name} wins this round.")
-                self.player_two.score += 1 
+                self.player_two.score += 1
                 print(f"\nCurrent Score:\n{self.player_one.name} - ({self.player_one.score})\n{self.player_two.name} - ({self.player_two.score})")
-                (input("\nPress ENTER to continue..."))                
+                (input("\nPress ENTER to continue..."))
+            elif self.player_two.choice == "Scissors":
+                print(f"\n{self.player_two.choice} cut {self.player_one.choice}! {self.player_two.name} wins this round.")
+                self.player_two.score += 1
+                print(f"\nCurrent Score:\n{self.player_one.name} - ({self.player_one.score})\n{self.player_two.name} - ({self.player_two.score})")
+                (input("\nPress ENTER to continue..."))
         elif self.player_one.choice == "Scissors":
             if self.player_two.choice == "Paper" or self.player_two.choice == "Lizard":
                 print(f"\n{self.player_one.choice} cuts {self.player_two.choice}! {self.player_one.name} wins this round!")
-                self.player_one.score += 1 
+                self.player_one.score += 1
                 print(f"\nCurrent Score:\n{self.player_one.name} - ({self.player_one.score})\n{self.player_two.name} - ({self.player_two.score})")
-                (input("\nPress ENTER to continue..."))                
-            elif self.player_two.choice == "Spock" or self.player_two.choice == "Rock":
+                (input("\nPress ENTER to continue..."))
+            elif self.player_two.choice == "Spock":
                 print(f"\n{self.player_two.choice} smashes {self.player_one.choice}! {self.player_two.name} wins this round.")
-                self.player_two.score += 1 
+                self.player_two.score += 1
                 print(f"\nCurrent Score:\n{self.player_one.name} - ({self.player_one.score})\n{self.player_two.name} - ({self.player_two.score})")
-                (input("\nPress ENTER to continue..."))                
-        elif self.player_one.choice == "Lizard":
-            if self.player_two.choice == "Spock" or self.player_two.choice == "Paper":
-                print(f"\n{self.player_one.choice} poisons {self.player_two.choice}! {self.player_one.name} wins this round!")
-                self.player_one.score += 1 
-                print(f"\nCurrent Score:\n{self.player_one.name} - ({self.player_one.score})\n{self.player_two.name} - ({self.player_two.score})")
-                (input("\nPress ENTER to continue..."))                
-            elif self.player_two.choice == "Rock" or self.player_two.choice == "Scissors":
+                (input("\nPress ENTER to continue..."))
+            elif self.player_two.choice == "Rock":
                 print(f"\n{self.player_two.choice} crushes {self.player_one.choice}! {self.player_two.name} wins this round.")
-                self.player_two.score += 1 
+                self.player_two.score += 1
                 print(f"\nCurrent Score:\n{self.player_one.name} - ({self.player_one.score})\n{self.player_two.name} - ({self.player_two.score})")
-                (input("\nPress ENTER to continue..."))                
+                (input("\nPress ENTER to continue..."))
+        elif self.player_one.choice == "Lizard":
+            if self.player_two.choice == "Spock" :
+                print(f"\n{self.player_one.choice} poisons {self.player_two.choice}! {self.player_one.name} wins this round!")
+                self.player_one.score += 1
+                print(f"\nCurrent Score:\n{self.player_one.name} - ({self.player_one.score})\n{self.player_two.name} - ({self.player_two.score})")
+                (input("\nPress ENTER to continue..."))
+            elif self.player_two.choice == "Paper":
+                print(f"\n{self.player_two.choice} gets eaten by {self.player_one.choice}! {self.player_one.name} wins this round.")
+                self.player_one.score += 1
+                print(f"\nCurrent Score:\n{self.player_one.name} - ({self.player_one.score})\n{self.player_two.name} - ({self.player_two.score})")
+                (input("\nPress ENTER to continue..."))
+            elif self.player_two.choice == "Rock":
+                print(f"\n{self.player_two.choice} crushes {self.player_one.choice}! {self.player_two.name} wins this round.")
+                self.player_two.score += 1
+                print(f"\nCurrent Score:\n{self.player_one.name} - ({self.player_one.score})\n{self.player_two.name} - ({self.player_two.score})")
+                (input("\nPress ENTER to continue..."))
+            elif self.player_two.choice == "Scissors":
+                print(f"\n{self.player_two.choice} cut {self.player_one.choice}! {self.player_two.name} wins this round.")
+                self.player_two.score += 1
+                print(f"\nCurrent Score:\n{self.player_one.name} - ({self.player_one.score})\n{self.player_two.name} - ({self.player_two.score})")
+                (input("\nPress ENTER to continue..."))
         elif self.player_one.choice == "Spock":
-            if self.player_two.choice == "Scissors" or self.player_two.choice == "Rock":
+            if self.player_two.choice == "Scissors":
                 print(f"\n{self.player_one.choice} smashes {self.player_two.choice}! {self.player_one.name} wins this round!")
-                self.player_one.score += 1 
+                self.player_one.score += 1
                 print(f"\nCurrent Score:\n{self.player_one.name} - ({self.player_one.score})\n{self.player_two.name} - ({self.player_two.score})")
-                (input("\nPress ENTER to continue..."))                
-            elif self.player_two.choice == "Paper" or self.player_two.choice == "Lizard":
+                (input("\nPress ENTER to continue..."))
+            elif self.player_two.choice == "Rock":
+                print(f"\n{self.player_one.choice} vaporizes {self.player_two.choice}! {self.player_one.name} wins this round!")
+                self.player_one.score += 1
+                print(f"\nCurrent Score:\n{self.player_one.name} - ({self.player_one.score})\n{self.player_two.name} - ({self.player_two.score})")
+                (input("\nPress ENTER to continue..."))
+            elif self.player_two.choice == "Paper":
                 print(f"\n{self.player_two.choice} disaproves {self.player_one.choice}! {self.player_two.name} wins this round.")
+                self.player_two.score += 1
+                print(f"\nCurrent Score:\n{self.player_one.name} - ({self.player_one.score})\n{self.player_two.name} - ({self.player_two.score})")
+                (input("\nPress ENTER to continue..."))
+            elif self.player_two.choice == "Lizard":
+                print(f"\n{self.player_two.choice} poisons {self.player_one.choice}! {self.player_two.name} wins this round.")
                 self.player_two.score += 1 
                 print(f"\nCurrent Score:\n{self.player_one.name} - ({self.player_one.score})\n{self.player_two.name} - ({self.player_two.score})")
-                (input("\nPress ENTER to continue..."))                
+                (input("\nPress ENTER to continue..."))               
     
     def display_winner(self): 
         if self.player_one.score == 2: 
