@@ -8,20 +8,17 @@ class AI(Player):
         self.set_name()
         
     def hand_gesture(self):
-        self.gesture = random.choice() #the choice list goes here>
-        if self.gesture == "Rock":
-           print(f'Player 2 selected {self.gesture}')
-        elif self.gesture == "Paper":
-           print(f'Player 2 selected {self.gesture}')
-        elif self.gesture == "Scissors":
-           print(f'Player 2 selected {self.gesture}')
-        elif self.gesture == "Lizard":
-           print(f'Player 2 selected {self.gesture}')
-        elif self.gesture == "Spock":
-           print(f'Player 2 selected {self.gesture}')
+        self.choice = random.choice(self.gesture_list)
+        if self.choice == "Rock":
+           print(f'{self.name} selected {self.choice}')
+        elif self.choice == "Paper":
+           print(f'{self.name} selected {self.choice}')
+        elif self.choice == "Scissors":
+           print(f'{self.name} selected {self.choice}')
+        elif self.choice == "Lizard":
+           print(f'{self.name} selected {self.choice}')
+        elif self.choice == "Spock":
+           print(f'{self.name} selected {self.choice}')
 
     def set_name(self):
         self.name = "Master AI"
-
-    # def hand_gesture(self):
-    #     self.choice = random.choice(self.gesture_list)
