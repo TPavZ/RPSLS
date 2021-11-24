@@ -68,7 +68,7 @@ class Game:
             return mode
         else:
             self.player_two = AI()
-            print(f"{self.player_two.name} will ne player two.")
+            print(f"{self.player_two.name} will be player two.")
             print(input("\nPress ENTER to continue..."))
             return mode
 

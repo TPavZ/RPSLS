@@ -7,18 +7,15 @@ class Player:
         
 
     def choose_gesture(self):
+        validation = False
         print(f"\n{self.name} pick one of the gestures below ↓")
-        self.choice = int(input("Press 0 for Rock, 1 for Paper, 2 for Scissors, 3 for Lizard, 4 for Spock: "))
-        validation = self.validation(self.choice)
-        self.choice = self.gesture_list[validation]
+        while validation == False:
+            input_int = int(input("\nPress 0 for Rock, 1 for Paper, 2 for Scissors, 3 for Lizard, 4 for Spock: "))
+            if input_int <= 4:
+                validation = True
+            else:
+                validation = False
+                print(f"\nInvalid gesture, please choose again! ")
+        self.choice = self.gesture_list[input_int]
         print(f"\n{self.name} has selected {self.choice}")
         return self.choice
-
-    def validation(self, validation):
-        if validation > len(self.gesture_list):
-            print(f"Invalid gesture, please choose again! ")
-            self.choose_gesture()
-        else:
-            return validation
-
-    
